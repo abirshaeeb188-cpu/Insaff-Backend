@@ -32,6 +32,13 @@ app.use(
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Insaf Backend API is running',
+    status: 'ok',
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
