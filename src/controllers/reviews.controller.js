@@ -46,7 +46,7 @@ export async function deleteReview(req, res, next) {
     const review = result.rows[0]
 
     if (!review) return res.status(404).json({ error: 'Review not found.' })
-    if (review.user_id !== req.user.userId) {
+    if (Number(review.user_id) !== Number(req.user.userId)) {
       return res.status(403).json({ error: 'You can only delete your own review.' })
     }
 
